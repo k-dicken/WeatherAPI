@@ -34,6 +34,9 @@ h1 {
 .grey {
   color: #777777; }
 
+.selected {
+  background-color: #f7f7f7; }
+
 .center-column {
   display: flex;
   align-items: center;
@@ -90,7 +93,8 @@ nav {
   justify-content: center;
   flex-direction: column;
   padding: 24px 12px;
-  margin-bottom: 108px; }
+  margin-bottom: 108px;
+  text-align: center; }
   #home .text {
     display: flex;
     align-items: center;
@@ -134,19 +138,19 @@ nav {
     display: flex;
     align-items: center;
     overflow-x: auto;
-    border-radius: 12px;
-    background-color: #f7f7f7; }
+    border-radius: 12px; }
     #display #days .day {
       width: 20%;
       min-width: 100px;
       min-width: fit-content;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       flex-direction: column;
       padding: 6px 24px;
-      border-left: 1px solid #e7e7e7;
-      border-right: 1px solid #e7e7e7;
-      background-color: #fff; }
+      border-left: 1px solid #fff;
+      border-right: 1px solid #fff;
+      background-color: #f7f7f7; }
       #display #days .day img {
         width: 36px;
         height: 36px; }
@@ -161,6 +165,9 @@ nav {
         margin-bottom: 8px; }
       #display #days .day .temp-low {
         color: #777777; }
+    #display #days .day:hover {
+      cursor: pointer;
+      background-color: #e7e7e7; }
 
 @media only screen and (max-width: 700px) {
   #display #days * {

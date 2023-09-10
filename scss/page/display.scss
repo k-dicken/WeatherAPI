@@ -46,19 +46,20 @@
         overflow-x: auto;
 
         border-radius: 12px;
-        background-color: #f7f7f7;
+        // background-color: #f7f7f7;
 
         .day {
             width: 20%;
             min-width: 100px;
             min-width: fit-content;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             flex-direction: column;
             padding: 6px 24px;
-            border-left: 1px solid #e7e7e7;
-            border-right: 1px solid #e7e7e7;
-            background-color: #fff;
+            border-left: 1px solid #fff;
+            border-right: 1px solid #fff;
+            background-color: #f7f7f7;
 
             img {
                 width: 36px;
@@ -83,6 +84,11 @@
             .temp-low {
                 color: #777777;
             }
+        }
+
+        .day:hover {
+            cursor: pointer;
+            background-color: #e7e7e7
         }
     }
 }

@@ -4,18 +4,12 @@ let activeLocationData = '';
 let activeDayID = 1;
 let activeForecastNum = 5;
 
-function initListeners() {
-    console.log("init");
-    
+function initListeners() {    
     $("#submit-search").on("click", (e) => {
         e.preventDefault();
         let input = $("#search-field").val();
-        console.log(input.length);
 
         if(input != "") {
-            console.log("enter location");
-
-            console.log($.isNumeric(input));
             if($.isNumeric(input) && input.length != 5) {
                 $('#search-error-message').html("Zip code must be 5 characters long.")
             } else {
@@ -23,9 +17,7 @@ function initListeners() {
                 $("#display").removeClass("hidden");
                 $("#display").addClass("show");
             }
-
         } else {
-            console.log("empty")
             $('#search-error-message').html("Please enter a zip code or city.")
         }
     })
@@ -34,7 +26,6 @@ function initListeners() {
 function convertDate(date_epoch) {
     let d = new Date(0);
     d.setUTCSeconds(date_epoch);
-    console.log(d);
     d = String(d);
     let dates = d.split(" ");
     
@@ -47,8 +38,6 @@ function addDays() {
     let days = ``;
 
     activeLocationData.forecast.forecastday.forEach((day, index) => {
-        console.log(day);
-
         days = days + `<div id=${index} class="day" onClick="setActiveDate(${index})">
         <p class="date">${convertDate(day.date_epoch)[0]} ${convertDate(day.date_epoch)[2]}</p>
         <img src="${day.day.condition.icon}" alt="${day.day.condition.text}">
@@ -65,11 +54,12 @@ function addDays() {
 }
 
 function setActiveDate(date) {
-    console.log(activeLocationData.forecast.forecastday[date]);
-
     let dateData = activeLocationData.forecast.forecastday[date];
+    $(`#${activeDayID}`).css("background-color", "#f7f7f7");
+    activeDayID = date;
+    $(`#${activeDayID}`).css("background-color", "#fff");
 
-    $("#display-location").html(`${activeLocationData.location.name}, ${activeLocationData.location.region} ${activeLocationData.location.country}`)
+    $("#display-location").html(`${activeLocationData.location.name}, ${activeLocationData.location.region} <br>  ${activeLocationData.location.country}`)
     
     $("#display-date").html(`${convertDate(dateData.date_epoch)[0]}, ${convertDate(dateData.date_epoch)[1]} ${convertDate(dateData.date_epoch)[2]}`)
 
@@ -82,18 +72,13 @@ function setActiveDate(date) {
 }
 
 function collectData(input, daysNum) {
-    console.log("collect", input)
-
     let url = baseurl + apikey + '&q=' + input + '&days=' + daysNum + '&aqi=no&alerts=no';
 
-    console.log(url);
     $.getJSON(url, (data) => {
-        console.log(data);
         activeLocationData = data;
 
         addDays(daysNum);
     }).fail(function(e) {
-        console.log("error", e);
     })
 }
  
