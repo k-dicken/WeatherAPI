@@ -1,4 +1,4 @@
-const baseurl = `http://api.weatherapi.com/v1/forecast.json?key=`;
+const baseurl = `https://api.weatherapi.com/v1/forecast.json?key=`;
 const apikey = `23a7ada5e8f94a638a2204743232808`;
 let activeLocationData = '';
 let activeDayID = 1;
