@@ -13,6 +13,7 @@ function initListeners() {
             if($.isNumeric(input) && input.length != 5) {
                 $('#search-error-message').html("Zip code must be 5 characters long.")
             } else {
+                $('#search-error-message').html("");
                 collectData(input, activeForecastNum);
                 $("#display").removeClass("hidden");
                 $("#display").addClass("show");
@@ -24,6 +25,7 @@ function initListeners() {
 }
 
 function convertDate(date_epoch) {
+    //convert date_epoch to array of date information
     let d = new Date(0);
     d.setUTCSeconds(date_epoch);
     d = String(d);
@@ -34,7 +36,6 @@ function convertDate(date_epoch) {
 
 function addDays() {
     //for each day, add day to days variable that is used to replace the html of #days. each day must be clickable with its id to trigger setActiveDate
-
     let days = ``;
 
     activeLocationData.forecast.forecastday.forEach((day, index) => {
@@ -55,10 +56,13 @@ function addDays() {
 
 function setActiveDate(date) {
     let dateData = activeLocationData.forecast.forecastday[date];
+
+    //set color of selected day
     $(`#${activeDayID}`).css("background-color", "#f7f7f7");
     activeDayID = date;
     $(`#${activeDayID}`).css("background-color", "#fff");
 
+    // insert top data 
     $("#display-location").html(`${activeLocationData.location.name}, ${activeLocationData.location.region} <br>  ${activeLocationData.location.country}`)
     
     $("#display-date").html(`${convertDate(dateData.date_epoch)[0]}, ${convertDate(dateData.date_epoch)[1]} ${convertDate(dateData.date_epoch)[2]}`)
@@ -69,6 +73,8 @@ function setActiveDate(date) {
     $("#display-temp-main").html(`${Math.trunc(dateData.day.avgtemp_f)}° F`)
     $("#display-temp-high").html(`${Math.trunc(dateData.day.maxtemp_f)}° F`)
     $("#display-temp-low").html(`${Math.trunc(dateData.day.mintemp_f)}° F`)
+
+    //insert below data
 }
 
 function collectData(input, daysNum) {
@@ -79,6 +85,8 @@ function collectData(input, daysNum) {
 
         addDays(daysNum);
     }).fail(function(e) {
+        console.log(e);
+        $('#search-error-message').html(`${e.responseJSON.error.message}<br>(Error code ${e.responseJSON.error.code})`);
     })
 }
  
