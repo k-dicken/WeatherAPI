@@ -22,6 +22,15 @@ p {
     margin-bottom: 16px;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: #4f6fff;
+}
+
 .error {
     color: red;
 }

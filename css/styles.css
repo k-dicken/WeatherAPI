@@ -16,6 +16,13 @@ h6,
 p {
   margin-bottom: 16px; }
 
+a {
+  text-decoration: none;
+  color: black; }
+
+a:hover {
+  color: #4f6fff; }
+
 .error {
   color: red; }
 
@@ -77,6 +84,10 @@ nav {
     align-items: center; }
     nav .logo * {
       margin: 0; }
+  nav .buttons {
+    width: fit-content; }
+    nav .buttons a {
+      margin: 0 2vw; }
 
 #page {
   width: 100%;
