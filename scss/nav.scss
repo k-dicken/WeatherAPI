@@ -1,0 +1,22 @@
+nav {
+    width: 100vw;
+    height: 8vh;
+
+    padding: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+
+    background-color: white;
+
+    .logo {
+        display: flex;
+        align-items: center;
+        
+        * {
+            margin: 0;
+        }
+    }
+}

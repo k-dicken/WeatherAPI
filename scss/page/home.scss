@@ -1,0 +1,31 @@
+#home {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: 24px 12px;
+    margin-bottom: 108px;
+
+    // border: 1px blue solid;
+
+    .text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 36px;
+
+        h2 {
+            font-size: 48px;
+        }   
+    }
+
+    .search {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}

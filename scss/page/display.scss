@@ -1,0 +1,104 @@
+#display {
+    min-height: 100vh;
+    width: 100%;
+    padding: 10% 4% 4% 4%;
+    border-radius: 24px 24px 0 0;
+    background-color: white;
+    box-shadow: 0 0 24px 24px #f7f7f7;
+    border-top: 8px solid #4f6fff;
+
+    .main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+
+        margin-bottom: 48px;
+
+        .temp {
+            .temp-main {
+                font-size: 72px;
+                margin-bottom: 6px;
+            }
+
+            .temp-highlow {
+                display: flex;
+                justify-content: space-between;
+
+                padding: 2%;
+                
+                p {
+                    font-size: 18px;
+                }
+
+                * {
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    #days {
+        display: flex;
+        align-items: center;
+        // justify-content: center;
+        overflow-x: auto;
+
+        border-radius: 12px;
+        background-color: #f7f7f7;
+
+        .day {
+            width: 20%;
+            min-width: 100px;
+            min-width: fit-content;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 6px 24px;
+            border-left: 1px solid #e7e7e7;
+            border-right: 1px solid #e7e7e7;
+            background-color: #fff;
+
+            img {
+                width: 36px;
+                height: 36px;
+            }
+
+            .chance {
+                font-size: small;
+                color: #777777;
+                margin-bottom: 24px;
+
+                svg {
+                    height: 8px;
+                    width: 8px;
+                }
+            }
+
+            .temp-high {
+                margin-bottom: 8px;
+            }
+
+            .temp-low {
+                color: #777777;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #display {
+        #days {
+            * {
+                font-size: small;
+            }
+
+            .day {
+                .chance {
+                    font-size: x-small;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "sass": "^1.66.1"
+  },
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  },
+  "name": "homework2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "compile:sass": "node-sass scss/styles.scss css/styles.css -w"
+    },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
